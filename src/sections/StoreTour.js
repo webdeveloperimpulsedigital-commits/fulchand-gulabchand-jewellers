@@ -44,7 +44,7 @@ export default function StoreTour() {
       id="store-tour"
       aria-label="Flagship Store Tour"
     >
-      <div className={styles.videoWrapper}>
+      <div className={styles.videoWrapper} data-preset="scale">
         <video
           ref={videoRef}
           src={getAssetUrl('/videos/store-tour.mp4')}

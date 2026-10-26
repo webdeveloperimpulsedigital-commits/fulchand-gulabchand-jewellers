@@ -3,70 +3,109 @@
 import { useEffect } from 'react';
 
 /**
- * NidaScrollAnimator
- * Exact port of Nída Tabba's scroll trigger logic from https://nidatabba.com/
- * Features:
- * 1. Image curtain reveal: .js-images-animation-up adds .active at (offsetTop - windowHeight * 0.75)
- * 2. Content fade-up: [data-aos="fade-up"] adds .aos-animate at (offsetTop - windowHeight * 0.85)
- * 3. Passive 60fps performance with dual-strategy (scroll loop + IntersectionObserver)
+ * NidaScrollAnimator — Limnia-Inspired Luxury Scroll Animation Engine
+ * Replicates the smooth, slow, editorial section-by-section reveals from https://limnia.com/
+ *
+ * Supported Triggers & Presets:
+ * 1. [data-preset="opacity,y"]   -> Upward glide with smooth deceleration
+ * 2. [data-preset="scale"]       -> High-jewelry image scale un-zoom reveal
+ * 3. [data-preset="opacity,scale"] -> Delicate scale & opacity fade for crests/buttons
+ * 4. [data-preset="opacity,x"]   -> Lateral glide
+ * 5. [data-aos="fade-up"]        -> Backward-compatible editorial typography fade-up
+ * 6. .should-animate             -> Limnia signature class hook
+ * 7. .js-images-animation-up     -> Editorial curtain reveal
  */
 export default function NidaScrollAnimator() {
   useEffect(() => {
-    let ticking = false;
+    if (typeof window === 'undefined') return;
 
-    const checkAnimations = () => {
-      const isMob = window.matchMedia('(max-width: 960px)').matches;
-      const windowHeight = window.innerHeight;
+    const SELECTOR =
+      '[data-preset], [data-aos], .should-animate, .js-images-animation-up';
 
-      // 1. Exact Nída Tabba trigger for .js-images-animation-up (.active)
-      // tt = 0.75 on desktop (25% up from viewport bottom), 0.9 on mobile (10% up)
-      const tt = isMob ? 0.9 : 0.75;
-      const imgElements = document.querySelectorAll('.js-images-animation-up');
-      imgElements.forEach((elem) => {
-        if (!elem.classList.contains('active')) {
-          const rect = elem.getBoundingClientRect();
-          if (rect.top < windowHeight * tt) {
-            elem.classList.add('active');
-          }
-        }
-      });
-
-      // 2. Exact Nída Tabba trigger for [data-aos] elements (.aos-animate)
-      const aosElements = document.querySelectorAll('[data-aos]');
-      aosElements.forEach((elem) => {
-        if (!elem.classList.contains('aos-animate')) {
-          const rect = elem.getBoundingClientRect();
-          if (rect.top < windowHeight * 0.85) {
-            elem.classList.add('aos-animate');
-          }
-        }
-      });
-
-      ticking = false;
-    };
-
-    const onScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(checkAnimations);
-        ticking = true;
+    const animateElement = (el) => {
+      el.classList.add('is-animated');
+      el.classList.add('aos-animate');
+      if (el.classList.contains('js-images-animation-up')) {
+        el.classList.add('active');
       }
     };
 
-    // Run checks on mount, after DOM updates, and on window events
-    checkAnimations();
-    const t1 = setTimeout(checkAnimations, 100);
-    const t2 = setTimeout(checkAnimations, 400);
+    // Use IntersectionObserver for 60fps/120fps hardware-accelerated detection
+    let observer;
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              animateElement(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.08,
+        }
+      );
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+      const observeAll = () => {
+        const elements = document.querySelectorAll(SELECTOR);
+        elements.forEach((el) => {
+          if (!el.classList.contains('is-animated') && !el.classList.contains('aos-animate')) {
+            observer.observe(el);
+          }
+        });
+      };
 
-    return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
+      observeAll();
+
+      // MutationObserver to automatically catch dynamic items / slides / cards
+      const mutationObs = new MutationObserver(() => {
+        observeAll();
+      });
+
+      mutationObs.observe(document.body, { childList: true, subtree: true });
+
+      // Immediate check for elements already in viewport on initial load
+      const initialTimer = setTimeout(() => {
+        const windowHeight = window.innerHeight;
+        document.querySelectorAll(SELECTOR).forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < windowHeight * 0.92) {
+            animateElement(el);
+            if (observer) observer.unobserve(el);
+          }
+        });
+      }, 60);
+
+      return () => {
+        clearTimeout(initialTimer);
+        observer.disconnect();
+        mutationObs.disconnect();
+      };
+    } else {
+      // Fallback for browsers without IntersectionObserver
+      const checkFallback = () => {
+        const windowHeight = window.innerHeight;
+        document.querySelectorAll(SELECTOR).forEach((el) => {
+          if (!el.classList.contains('is-animated')) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < windowHeight * 0.88) {
+              animateElement(el);
+            }
+          }
+        });
+      };
+
+      window.addEventListener('scroll', checkFallback, { passive: true });
+      checkFallback();
+
+      return () => {
+        window.removeEventListener('scroll', checkFallback);
+      };
+    }
   }, []);
 
   return null;
 }
+

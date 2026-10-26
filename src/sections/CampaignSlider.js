@@ -148,7 +148,7 @@ export default function CampaignSlider() {
                 <div className={styles.overlay} aria-hidden="true" />
 
                 {/* Centered Heading & Brand Crimson Red Explore Button */}
-                <div className={styles.content}>
+                <div className={styles.content} data-preset="opacity,y" data-delay="0.2">
                   <h2 className={styles.slideTitle}>{slide.title}</h2>
                   <Link href={slide.href} className={styles.ctaButton}>
                     {slide.ctaText}

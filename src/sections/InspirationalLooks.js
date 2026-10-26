@@ -228,7 +228,7 @@ export default function InspirationalLooks() {
               className={`${styles.bottomSlide} ${slide.variantClass}`}
             >
               {slide.images.map((img, imgIdx) => (
-                <div key={imgIdx} className={img.className}>
+                <div key={imgIdx} className={img.className} data-preset="scale">
                   <img
                     src={getAssetUrl(img.src)}
                     alt={img.alt}

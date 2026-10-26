@@ -82,7 +82,7 @@ export default function HomeCollections() {
             data-aos-delay={(idx % 2) * 120}
           >
             {/* Image Wrap with Clean Editorial Image & Hover Vignette */}
-            <div className={styles.imageWrap}>
+            <div className={styles.imageWrap} data-preset="scale">
               <Image
                 src={getAssetUrl(col.image)}
                 alt={col.alt}
@@ -95,7 +95,7 @@ export default function HomeCollections() {
             </div>
 
             {/* Bottom-Left Caption with Sliding "View collection" Line Link */}
-            <div className={styles.nameMore}>
+            <div className={styles.nameMore} data-preset="opacity,y" data-delay="0.15">
               <h3 className={styles.collectionName}>{col.name}</h3>
               <span className={styles.collectionMore}>View collection</span>
             </div>
@@ -104,7 +104,7 @@ export default function HomeCollections() {
       </div>
 
       {/* Centered Explore All Collections CTA */}
-      <div className={styles.bottomCta} data-aos="fade-up">
+      <div className={styles.bottomCta} data-aos="fade-up" data-preset="opacity,scale">
         <button
           type="button"
           onClick={() => setShowAll((prev) => !prev)}

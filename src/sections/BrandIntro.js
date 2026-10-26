@@ -138,7 +138,7 @@ export default function BrandIntro() {
         {/* Right Column: images-wrap with smooth scroll parallax */}
         <div ref={imagesWrapRef} className={styles.imagesWrap}>
           {/* Overlapping secondary close-up image with upward scroll float */}
-          <div ref={overlapRef} className={`${styles.overlapImage} js-parallax-image js-del`}>
+          <div ref={overlapRef} className={`${styles.overlapImage} js-parallax-image js-del`} data-preset="scale">
             <Image
               src={getAssetUrl('/images/editorial/main-diversity-of-beauty-1.jpg')}
               alt="Artisan craftsmanship close-up"
@@ -149,8 +149,8 @@ export default function BrandIntro() {
             />
           </div>
 
-          {/* Primary portrait image with Nída Tabba fade-up */}
-          <div className={styles.mainImageWrap} data-aos="fade-up">
+          {/* Primary portrait image with Limnia scale reveal */}
+          <div className={styles.mainImageWrap} data-aos="fade-up" data-preset="scale">
             <Image
               src={getAssetUrl('/images/editorial/main-diversity-of-beauty-2.jpg')}
               alt="Fulchand Gulabchand high jewelry"
@@ -161,7 +161,7 @@ export default function BrandIntro() {
               className={styles.img}
             />
             {/* Editorial manifesto caption under portrait */}
-            <div className={styles.imageDesc}>
+            <div className={styles.imageDesc} data-preset="opacity,y" data-delay="0.25">
               CULTURAL ROOTS ARE ESSENTIAL. IT IS THE SACRED HERITAGE THAT SUPPORTS US FROM THE VERY DEEP STATE OF OUR UNCONSCIOUS MIND. ALLOW YOURSELF TO EMBRACE TIMELESS ELEGANCE, AND DISCOVER THE PURE SOUL OF 22-KARAT GOLD WITH FULCHAND GULABCHAND JEWELLERS.
             </div>
           </div>
