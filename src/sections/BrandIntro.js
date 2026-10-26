@@ -177,7 +177,7 @@ export default function BrandIntro() {
           <div ref={bubbleRef} className={styles.discoverBubble} aria-hidden="true">
             <svg
               preserveAspectRatio="xMidYMid meet"
-              viewBox="140 170 320 260"
+              viewBox="120 150 360 300"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className={styles.discoverBubbleSvg}
