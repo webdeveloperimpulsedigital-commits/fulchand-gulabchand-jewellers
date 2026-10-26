@@ -300,59 +300,73 @@
 }
 
 .homeDiscover {
-  padding: clamp(56px, 5.5vw, 88px) 0 0;
+  padding: clamp(100px, 12vw, 190px) 0 clamp(100px, 12vw, 190px);
+  min-height: clamp(520px, 60vh, 760px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   position: relative;
   background: #ffffff;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 960px) {
   .homeDiscover {
-    padding: 14vw 0 0 0;
+    padding: clamp(70px, 20vw, 120px) 0 clamp(70px, 18vw, 110px);
+    min-height: auto;
   }
 }
 
 .titleBubble {
   position: relative;
-  margin-bottom: clamp(140px, 12vw, 180px);
+  margin-bottom: 0;
   width: 100%;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 960px) {
   .titleBubble {
-    margin-bottom: clamp(80px, 24vw, 110px);
+    margin-bottom: 0;
   }
 }
 
 .discoverTitle {
   font-family: var(--font-display, var(--font-jost), 'Futura', 'Century Gothic', sans-serif);
-  font-size: clamp(38px, 5.1388888889vw, 84px);
-  line-height: 1.15;
+  font-size: clamp(48px, 6.4vw, 106px);
+  line-height: 1.1;
   text-align: center;
   color: #000000 !important;
   position: relative;
   z-index: 2;
   font-weight: 400;
-  letter-spacing: -0.015em;
-  margin: 0;
-  padding: 0 2vw;
+  letter-spacing: -0.02em;
+  margin: 0 auto;
+  max-width: clamp(820px, 86vw, 1480px);
+  padding: 0 clamp(20px, 4vw, 60px);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 @media screen and (max-width: 960px) {
   .discoverTitle {
-    font-size: clamp(26px, 9.0666666667vw, 44px);
-    line-height: 1.2;
-    padding: 0 4vw;
+    font-size: clamp(32px, 9.2vw, 54px);
+    line-height: 1.16;
+    letter-spacing: -0.015em;
+    padding: 0 5vw;
+    max-width: 94vw;
   }
 }
 
 .discoverBubble {
   position: absolute;
-  left: 14vw;
+  left: clamp(30px, 7.5vw, 120px);
   top: 50%;
   transform: translate3d(0, -50%, 0);
   pointer-events: none;
@@ -369,7 +383,7 @@
 }
 
 .discoverBubbleSvg {
-  width: 32vw;
+  width: clamp(520px, 48vw, 860px);
   height: auto;
   aspect-ratio: 320 / 260;
   display: block;
@@ -377,7 +391,7 @@
 
 @media screen and (max-width: 960px) {
   .discoverBubbleSvg {
-    width: 72vw;
+    width: clamp(320px, 88vw, 480px);
     height: auto;
     aspect-ratio: 320 / 260;
   }
