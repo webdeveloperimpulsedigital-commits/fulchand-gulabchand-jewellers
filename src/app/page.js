@@ -15,7 +15,6 @@ import Bespoke from '@/sections/Bespoke';
 import Trust from '@/sections/Trust';
 import PlanVisit from '@/sections/PlanVisit';
 import StoreTour from '@/sections/StoreTour';
-import EarringScrollStory from '@/sections/EarringScrollStory';
 import NidaScrollAnimator from '@/components/NidaScrollAnimator';
 import ChapterCrest from '@/components/ChapterCrest';
 import styles from './page.module.css';
@@ -45,10 +44,6 @@ export default function HomePage() {
 
         {/* Chapter 03: Curated Collections Showcase */}
         <HomeCollections />
-
-        {/* Chapter 04: Interactive Scroll-Driven Earring to Model Showcase */}
-        <ChapterCrest />
-        <EarringScrollStory />
 
         {/* <Forward /> — Hidden as requested */}
         {/* <Craft /> — Hidden as requested */}
