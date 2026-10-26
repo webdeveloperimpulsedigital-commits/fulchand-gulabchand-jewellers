@@ -247,6 +247,25 @@ button { font: inherit; }
   transform: translate3d(0, 0, 0);
 }
 
+/* 5. Curtain Reveal (Bottom-to-Top) — Inverts Hero top-to-bottom reveal */
+[data-preset="curtain-up"] img,
+[data-preset="curtain-up"] video,
+[data-preset="curtain-up"] picture {
+  clip-path: inset(100% 0 0 0);
+  -webkit-transition: 1.15s cubic-bezier(0.16, 1, 0.3, 1) clip-path;
+  transition: 1.15s cubic-bezier(0.16, 1, 0.3, 1) clip-path;
+  will-change: clip-path;
+}
+
+[data-preset="curtain-up"].is-animated img,
+[data-preset="curtain-up"].is-animated video,
+[data-preset="curtain-up"].is-animated picture,
+[data-preset="curtain-up"].aos-animate img,
+[data-preset="curtain-up"].aos-animate video,
+[data-preset="curtain-up"].aos-animate picture {
+  clip-path: inset(0 0 0 0);
+}
+
 /* Stagger Delays (Supports both Limnia data-delay and AOS data-aos-delay) */
 [data-delay="0.05"], [data-delay=".05"], [data-aos-delay="50"] { transition-delay: 50ms; }
 [data-delay="0.1"], [data-delay=".1"], [data-aos-delay="100"] { transition-delay: 100ms; }

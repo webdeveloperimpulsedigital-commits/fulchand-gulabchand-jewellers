@@ -137,8 +137,8 @@ export default function BrandIntro() {
 
         {/* Right Column: images-wrap with smooth scroll parallax */}
         <div ref={imagesWrapRef} className={styles.imagesWrap}>
-          {/* Overlapping secondary close-up image with upward scroll float */}
-          <div ref={overlapRef} className={`${styles.overlapImage} js-parallax-image js-del`} data-preset="scale">
+          {/* Overlapping secondary close-up image with upward scroll float & bottom-to-top curtain reveal */}
+          <div ref={overlapRef} className={`${styles.overlapImage} js-parallax-image js-del`} data-preset="curtain-up" data-delay="0.18">
             <Image
               src={getAssetUrl('/images/editorial/main-diversity-of-beauty-1.jpg')}
               alt="Artisan craftsmanship close-up"
@@ -149,8 +149,8 @@ export default function BrandIntro() {
             />
           </div>
 
-          {/* Primary portrait image with Limnia scale reveal */}
-          <div className={styles.mainImageWrap} data-aos="fade-up" data-preset="scale">
+          {/* Primary portrait image with bottom-to-top curtain reveal */}
+          <div className={styles.mainImageWrap} data-aos="fade-up" data-preset="curtain-up">
             <Image
               src={getAssetUrl('/images/editorial/main-diversity-of-beauty-2.jpg')}
               alt="Fulchand Gulabchand high jewelry"
