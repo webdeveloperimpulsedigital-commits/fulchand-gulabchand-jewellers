@@ -1,0 +1,43 @@
+.circleContainer {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svgCircle {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.circleRing {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: stroke-dashoffset;
+}
+
+.innerRing {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.4s cubic-bezier(0.22, 1, 0.36, 1) 250ms;
+  will-change: stroke-dashoffset;
+}
+
+.isDrawn .circleRing,
+.isDrawn .innerRing {
+  stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .circleRing,
+  .innerRing {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+}

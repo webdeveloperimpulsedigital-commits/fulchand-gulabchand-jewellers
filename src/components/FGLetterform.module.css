@@ -1,0 +1,82 @@
+.letterContainer {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* Preset Positions */
+.posRight {
+  right: var(--letter-right, -6%);
+  top: var(--letter-top, 50%);
+  transform: translateY(-50%);
+}
+
+.posRightTop {
+  right: var(--letter-right, -6%);
+  top: -8%;
+}
+
+.posLeft {
+  left: var(--letter-left, -5%);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.posCenter {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.svgLetter {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.letterPath {
+  stroke-dasharray: 1.01;
+  stroke-dashoffset: 1.01;
+  fill-opacity: 0;
+  transition: stroke-dashoffset 2.2s cubic-bezier(0.22, 1, 0.36, 1),
+              fill-opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1) 1.2s;
+  will-change: stroke-dashoffset, fill-opacity;
+}
+
+.isDrawn .letterPath {
+  stroke-dashoffset: 0;
+  fill-opacity: var(--target-fill-opacity, 1);
+}
+
+@media (max-width: 960px) {
+  .posRight,
+  .posRightTop {
+    right: -10%;
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 640px) {
+  .posRight,
+  .posRightTop {
+    right: -16%;
+    opacity: 0.4;
+  }
+  .letterContainer {
+    max-width: 90vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letterPath {
+    stroke-dashoffset: 0 !important;
+    fill-opacity: var(--target-fill-opacity, 0.85) !important;
+    transition: none !important;
+  }
+}

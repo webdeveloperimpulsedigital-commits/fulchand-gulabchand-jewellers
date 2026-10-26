@@ -1,0 +1,369 @@
+/* ==========================================================================
+   HomeCollections — Exact Nída Tabba "home-collections" Section Stylesheet
+   Directly mapped from https://nidatabba.com/ (home.min.css & collections.min.css)
+   Aligned strictly to the logo line: var(--edge-gutter)
+   ========================================================================== */
+
+.homeCollections {
+  position: relative;
+  background-color: #ffffff;
+  padding-left: var(--edge-gutter, clamp(24px, 2.9vw, 52px));
+  padding-right: var(--edge-gutter, clamp(24px, 2.9vw, 52px));
+  padding-top: clamp(32px, 3.5vw, 48px);
+  padding-bottom: clamp(56px, 5.5vw, 84px);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 960px) {
+  .homeCollections {
+    padding-left: var(--edge-gutter, 16px);
+    padding-right: var(--edge-gutter, 16px);
+    padding-top: 10vw;
+    padding-bottom: 14vw;
+  }
+}
+
+/* ==========================================================================
+   Header Block: Title & Lead Paragraph
+   Flush with the logo on the left (margin-left: 0)
+   ========================================================================== */
+.titleDesc {
+  width: 100%;
+  margin: 0 0 clamp(24px, 2.5vw, 40px) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.title {
+  font-family: var(--font-display, var(--font-jost), 'Futura', sans-serif);
+  font-size: clamp(38px, 4.3vw, 62px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #000000;
+  margin: 0 0 clamp(16px, 1.8vw, 24px) 0;
+}
+
+@media screen and (max-width: 960px) {
+  .title {
+    font-size: clamp(32px, 8.5vw, 44px);
+    margin-bottom: 12px;
+  }
+}
+
+.lead {
+  width: 100%;
+  max-width: 100%;
+  font-family: var(--font-body, var(--font-manrope, system-ui, sans-serif));
+  font-size: 18px;
+  font-weight: 350;
+  line-height: 1.65;
+  color: #333333;
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+
+@media screen and (max-width: 960px) {
+  .lead {
+    max-width: 100%;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+/* ==========================================================================
+   Collections Grid: Exact Nída Tabba Alternating Rhythm
+   Row 1: Item 1 (40.86%), Item 2 (57.7%)
+   Row 2: Item 3 (57.7%), Item 4 (40.86%)
+   Row 3: Item 5 (40.86%), Item 6 (57.7%)
+   ========================================================================== */
+.collectionsList {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: clamp(16px, 1.388vw, 24px);
+}
+
+.collectionItem {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #f7f5f0;
+}
+
+@media screen and (min-width: 961px) {
+  .collectionItem:nth-child(4n + 1) {
+    width: 40.86%;
+  }
+
+  .collectionItem:nth-child(4n + 2) {
+    width: 57.7%;
+  }
+
+  .collectionItem:nth-child(4n + 3) {
+    width: 57.7%;
+  }
+
+  .collectionItem:nth-child(4n + 4) {
+    width: 40.86%;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .collectionItem {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+/* ==========================================================================
+   Image Container: static + dynamic layers
+   Desktop height: 23.75vw (exact Nída Tabba); Mobile: 54.67vw
+   ========================================================================== */
+.imageWrap {
+  position: relative;
+  width: 100%;
+  height: clamp(290px, 23.75vw, 380px);
+  overflow: hidden;
+  background-color: #f2eee8;
+}
+
+@media screen and (max-width: 960px) {
+  .imageWrap {
+    height: clamp(240px, 54.67vw, 320px);
+  }
+}
+
+.cardImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collectionItem:hover .cardImg {
+  transform: scale(1.028);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.04) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.56) 100%
+  );
+  transition: background 0.5s ease;
+  pointer-events: none;
+}
+
+.collectionItem:hover .overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08) 0%,
+    rgba(0, 0, 0, 0.24) 50%,
+    rgba(0, 0, 0, 0.68) 100%
+  );
+}
+
+/* ==========================================================================
+   Dynamic Gold Contour Line Overlay
+   Illuminates and gently scales on hover
+   ========================================================================== */
+.dynamicContour {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1), transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collectionItem:hover .dynamicContour {
+  opacity: 1;
+  transform: scale(1.025);
+}
+
+.contourSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ==========================================================================
+   Bottom-Left Caption: Name + "View collection"
+   ========================================================================== */
+.nameMore {
+  position: absolute;
+  z-index: 4;
+  left: clamp(20px, 1.528vw, 32px);
+  bottom: clamp(16px, 1.2vw, 24px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  pointer-events: none;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collectionItem:hover .nameMore {
+  transform: translateY(-5px);
+}
+
+.collectionName {
+  font-family: var(--font-display, var(--font-jost), 'Futura', sans-serif);
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+@media screen and (max-width: 960px) {
+  .collectionName {
+    font-size: clamp(22px, 6.4vw, 30px);
+  }
+}
+
+.collectionMore {
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: clamp(12px, 1.111vw, 15px);
+  font-weight: 350;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.95);
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.collectionItem:hover .collectionMore {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.12s;
+}
+
+.collectionMore::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1px;
+  background-color: var(--crimson, #A70000);
+  transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.collectionItem:hover .collectionMore::after {
+  width: 100%;
+}
+
+@media screen and (max-width: 960px) {
+  .collectionMore {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .collectionMore::after {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Bottom Explore All CTA Button (Centered below the image grid)
+   ========================================================================== */
+.bottomCta {
+  margin-top: clamp(32px, 3.5vw, 48px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.exploreAllBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 38px;
+  border-radius: 999px;
+  border: 1px solid var(--crimson, #A70000);
+  background-color: var(--crimson, #A70000);
+  color: #ffffff;
+  font-family: var(--font-body, system-ui, -apple-system, sans-serif);
+  font-size: clamp(12px, 0.9vw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(167, 0, 0, 0.28);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.exploreAllBtn:hover {
+  background-color: var(--crimson-deep, #7A0000);
+  color: #ffffff;
+  border-color: var(--crimson-deep, #7A0000);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(122, 0, 0, 0.4);
+}
+
+.exploreAllBtn svg {
+  color: currentColor;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.arrowDown {
+  transition: transform 0.3s ease;
+}
+
+.exploreAllBtn:hover .arrowDown {
+  transform: translateX(4px);
+}
+
+.arrowUp {
+  transform: rotate(0deg);
+}
+
+.exploreAllBtn:hover .arrowUp {
+  transform: translateY(-2px);
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: clamp(26px, 8vw, 34px);
+    margin-bottom: 8px;
+  }
+  .lead {
+    font-size: 14.5px;
+    line-height: 1.55;
+  }
+  .imageWrap {
+    height: clamp(210px, 58vw, 270px);
+  }
+  .collectionName {
+    font-size: clamp(20px, 5.8vw, 24px);
+  }
+  .exploreAllBtn {
+    padding: 12px 28px;
+    font-size: 11.5px;
+  }
+}

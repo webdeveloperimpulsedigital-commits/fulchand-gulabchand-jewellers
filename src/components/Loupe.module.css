@@ -1,0 +1,25 @@
+.ring {
+  position: absolute;
+  right: 15%;
+  top: 18%;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background: rgba(251, 246, 240, .6);
+  pointer-events: none;
+}
+
+.area { position: absolute; inset: 0; cursor: zoom-in; }
+
+.lens {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  margin: -66px 0 0 -66px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  background-repeat: no-repeat;
+  background-color: var(--white);
+  pointer-events: none;
+}

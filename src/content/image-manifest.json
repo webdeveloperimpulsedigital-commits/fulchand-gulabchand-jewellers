@@ -1,0 +1,77 @@
+{
+  "hero": {
+    "src": "/images/ai-jewellery/hero-jewellery-editorial.webp",
+    "width": 1376,
+    "height": 768
+  },
+  "heroMobile": {
+    "src": "/images/ai-jewellery/hero-jewellery-editorial-mobile.webp",
+    "width": 768,
+    "height": 1376
+  },
+  "collectionOnBody": {
+    "src": "/images/ai-jewellery/collection-necklace-on-body.webp",
+    "width": 896,
+    "height": 1200
+  },
+  "collectionCutout": {
+    "src": "/images/ai-jewellery/collection-gold-earrings-cutout.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "featuredProduct": {
+    "src": "/images/ai-jewellery/featured-gold-necklace.webp",
+    "width": 896,
+    "height": 1200
+  },
+  "craft": {
+    "src": "/images/ai-jewellery/craft-goldsmith-bench.webp",
+    "width": 896,
+    "height": 1200
+  },
+  "bespoke": {
+    "src": "/images/ai-jewellery/bespoke-sketch-to-ring.webp",
+    "width": 1200,
+    "height": 896
+  },
+  "EDIT-01": {
+    "src": "/images/ai-jewellery/edit-gold-necklace.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "EDIT-02": {
+    "src": "/images/ai-jewellery/edit-jhumka-earrings.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "EDIT-03": {
+    "src": "/images/ai-jewellery/edit-gold-bangle.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "EDIT-04": {
+    "src": "/images/ai-jewellery/edit-gold-ring.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "EDIT-05": {
+    "src": "/images/ai-jewellery/edit-gold-pendant.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "EDIT-06": {
+    "src": "/images/ai-jewellery/edit-gold-chain.webp",
+    "width": 1024,
+    "height": 1024
+  },
+  "store": {
+    "src": "/images/ai-jewellery/store-boutique-interior.webp",
+    "width": 896,
+    "height": 1200
+  },
+  "archive": {
+    "src": "/images/ai-jewellery/archive-vintage-goldsmith.webp",
+    "width": 1024,
+    "height": 1024
+  }
+}

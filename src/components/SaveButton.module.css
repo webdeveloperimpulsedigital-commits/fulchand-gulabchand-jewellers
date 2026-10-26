@@ -1,0 +1,15 @@
+.icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  padding: 0;
+  transition: color 300ms ease;
+}
+.icon:hover { color: var(--crimson-deep); }

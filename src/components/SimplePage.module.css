@@ -1,0 +1,13 @@
+.main {
+  padding-block: 120px 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1440px;
+}
+.body { max-width: 40em; display: flex; flex-direction: column; gap: 16px; }
+.body p { margin: 0; }
+
+@media (max-width: 820px) {
+  .main { padding-block: 64px 96px; }
+}

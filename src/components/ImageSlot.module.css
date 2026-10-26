@@ -1,0 +1,48 @@
+.slot {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: var(--ratio);
+  background: var(--blush);
+}
+.blush { background: var(--blush); }
+.ivory { background: var(--ivory); }
+.champ { background: var(--slot-champ); }
+.white { background: var(--white); outline: 1px solid var(--hairline); outline-offset: -1px; }
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.motif { width: 46%; max-width: 320px; height: auto; }
+
+.tag {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--bronze);
+}
+
+.art { object-position: var(--pos); }
+
+/* Used where a copy panel overlaps the bottom edge (hero). */
+.tagTop { top: 14px; bottom: auto; }
+
+@media (max-width: 820px) {
+  .slot { aspect-ratio: var(--ratio-m); }
+  .tagTop { top: auto; bottom: 14px; }
+  .art { object-position: var(--pos-m); }
+  .tag { font-size: 10.5px; letter-spacing: .14em; flex-direction: column; gap: 2px; }
+}

@@ -1,0 +1,52 @@
+.bar { display: none; }
+
+@media (max-width: 820px) {
+  .bar {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr 1fr 0.85fr;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 90;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid var(--hairline);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.08);
+  }
+  .bar a,
+  .bar span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 50px;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+  .bar .go {
+    background: var(--crimson, #A70000);
+    color: var(--white);
+  }
+  .bar .go:hover {
+    background: var(--crimson-deep, #7A0000);
+    color: var(--white);
+  }
+  .bar .off { color: var(--grey); }
+}
+
+@media (max-width: 380px) {
+  .bar a,
+  .bar span {
+    font-size: 10px;
+    letter-spacing: .05em;
+  }
+}

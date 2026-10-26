@@ -1,0 +1,30 @@
+{
+  "name": "fgj-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Fulchand Gulabchand Jewellers website — homepage (direction: Held)",
+  "scripts": {
+    "images": "node scripts/sync-images.mjs",
+    "predev": "node scripts/sync-images.mjs",
+    "dev": "next dev",
+    "prebuild": "node scripts/sync-images.mjs",
+    "build": "next build && node scripts/prepare-dist.mjs",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "15.5.27",
+    "react": "19.1.9",
+    "react-dom": "19.1.9"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "eslint": "9.37.0",
+    "eslint-config-next": "15.5.27",
+    "potrace": "^2.1.8",
+    "sharp": "0.35.5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

@@ -1,0 +1,226 @@
+/* ==========================================================================
+   InspirationalLooks — Exact Nída Tabba "home-bottom-slider" Section
+   Directly mapped from https://nidatabba.com/ (home.min.css & sliderHome.js)
+   Features:
+   - Grand editorial philosophy headline
+   - Continuous auto-sliding horizontal gallery with -11.8vw text overlap
+   - Pure editorial presentation with NO CTA buttons (no arrows, dots, or counter)
+   - Interactive touch/drag with momentum lerping & infinite seamless looping
+   ========================================================================== */
+
+.homeBottomSlider {
+  margin: 6.9444444444vw 0 15.2777777778vw;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 960px) {
+  .homeBottomSlider {
+    margin: 10vw 0 14vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .homeBottomSlider {
+    margin: 12vw 0 16vw;
+  }
+}
+
+/* ==========================================================================
+   Title Wrap: Editorial Typography spanning ~79vw (Exact Nída Tabba)
+   ========================================================================== */
+.titleWrap {
+  margin: 0 1.3888888889vw 5.4166666667vw;
+  width: 79.2361111111vw;
+  position: relative;
+  z-index: 1;
+}
+
+@media screen and (max-width: 960px) {
+  .titleWrap {
+    margin: 0 4vw 11.2vw;
+    width: auto;
+  }
+}
+
+.textMarkup {
+  width: 100%;
+}
+
+.heading {
+  font-family: var(--font-display, var(--font-jost), 'Futura', sans-serif);
+  font-size: clamp(24px, 2.6388888889vw, 42px);
+  line-height: 1.2;
+  color: #000000;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 960px) {
+  .heading {
+    font-size: clamp(20px, 6.4vw, 32px);
+    line-height: 1.25;
+  }
+
+  .heading br {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .heading {
+    font-size: clamp(17px, 5.2vw, 22px);
+    line-height: 1.35;
+  }
+}
+
+/* ==========================================================================
+   Slider Container: -11.8055vw Negative Top Margin for Magazine Collage Overlap
+   ========================================================================== */
+.sliderContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  margin-top: -11.8055555556vw;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.sliderContainer.isDragging {
+  cursor: grabbing;
+}
+
+@media screen and (max-width: 960px) {
+  .sliderContainer {
+    margin-top: -8vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .sliderContainer {
+    margin-top: -4vw;
+  }
+}
+
+.bottomSlider {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: visible;
+  height: 77.7777777778vw;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* Individual Slide Layer spanning 100vw */
+.bottomSlide {
+  position: absolute;
+  width: 100vw;
+  height: 77.7777777778vw;
+  left: 0;
+  top: 0;
+  will-change: transform;
+}
+
+/* Image Containers with Subtle Zoom on Hover */
+.image1,
+.image2,
+.image3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: absolute;
+  pointer-events: auto;
+  background-color: #f7f5f0;
+}
+
+.image1 img,
+.image2 img,
+.image3 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.4s ease-out transform;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+@media screen and (min-width: 960px) {
+  .image1:hover img,
+  .image2:hover img,
+  .image3:hover img {
+    transform: scale(1.08);
+  }
+}
+
+/* ==========================================================================
+   Exact Nída Tabba Layout Variants
+   ========================================================================== */
+
+/* Regular Slide (Slide 1 & Slide 3) */
+.slideRegular .image1 {
+  width: 64.375vw;
+  height: 66.5486111111vw;
+  top: 11.25vw;
+  left: 1.3888888889vw;
+  z-index: 1;
+}
+
+.slideRegular .image2 {
+  width: 39.7222222222vw;
+  height: 37.5vw;
+  top: 0;
+  left: 59.2361111111vw;
+  z-index: 2;
+}
+
+.slideRegular .image3 {
+  top: 39.8611111111vw;
+  right: 0;
+  width: 23.2638888889vw;
+  height: 30.9027777778vw;
+  z-index: 3;
+}
+
+/* Variant 2 Slide (Slide 2: .var2) */
+.slideVar2 .image1 {
+  width: 57.4305555556vw;
+  height: 59.375vw;
+  top: 7.1527777778vw;
+  bottom: auto;
+  right: auto;
+  left: 1.3888888889vw;
+  z-index: 1;
+}
+
+.slideVar2 .image2 {
+  width: 39.7222222222vw;
+  height: 37.5vw;
+  bottom: 0;
+  top: auto;
+  right: auto;
+  left: 36.3194444444vw;
+  z-index: 2;
+}
+
+.slideVar2 .image3 {
+  top: 0;
+  right: 0;
+  left: auto;
+  bottom: auto;
+  width: 23.2638888889vw;
+  height: 30.9027777778vw;
+  z-index: 3;
+}

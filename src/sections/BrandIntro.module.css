@@ -1,0 +1,413 @@
+/* ==========================================================================
+   Exact Nída Tabba "home-text-images" Section Stylesheet
+   Directly mapped from https://nidatabba.com/_content/Library/css/home.min.css
+   and https://nidatabba.com/_content/Library/css/style.min.css
+   ========================================================================== */
+
+.homeTextImages {
+  position: relative;
+  padding: clamp(36px, 3.5vw, 56px) 1.3888888889vw clamp(56px, 5.5vw, 88px) 2.9166666667vw;
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 960px) {
+  .homeTextImages {
+    padding: 12vw 4vw 14vw;
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Left Text Column (exact Nída Tabba: width: 31.4583vw, padding-top: 16.1111vw)
+   ========================================================================== */
+.textWrap {
+  padding-top: 16.1111111111vw;
+  width: 31.4583333333vw;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+@media screen and (max-width: 960px) {
+  .textWrap {
+    padding-top: 0;
+    width: 100%;
+    margin-bottom: 30.4vw;
+  }
+}
+
+/* Headline: exact Nída Tabba .text-markup h1, h2, h3
+   font-family: RomanaBT-Roman (Playfair Display / Cormorant); font-size: 2.63889vw; line-height: 1; margin-bottom: 3.61111vw */
+.heading {
+  font-family: var(--font-display, var(--font-jost), 'Futura', 'Century Gothic', sans-serif);
+  font-size: clamp(28px, 2.63889vw, 42px);
+  line-height: 1.05;
+  margin: 0 0 clamp(24px, 3.61111vw, 52px);
+  color: #000000 !important;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media screen and (max-width: 960px) {
+  .heading {
+    font-size: clamp(24px, 6.93333vw, 36px);
+    line-height: 1.2;
+    margin-bottom: 11.2vw;
+  }
+}
+
+/* Body Paragraphs: exact Nída Tabba .text-markup p
+   font-size: .97222vw (~14-16px); font-weight: 400; line-height: 1.65; color: pure black */
+.para {
+  font-family: var(--font-body, var(--font-manrope, sans-serif));
+  font-size: clamp(15px, 1.1111vw, 17px);
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0 0 clamp(16px, 1.25vw, 22px);
+  color: #000000 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 960px) {
+  .para {
+    font-size: clamp(15px, 4vw, 17px);
+    line-height: 1.6;
+    margin-bottom: 4.5vw;
+  }
+}
+
+/* Link Wrap: exact Nída Tabba margin-top: 6.52778vw (~94px) */
+.linkWrap {
+  margin-top: clamp(36px, 6.5277777778vw, 94px);
+}
+
+@media screen and (max-width: 960px) {
+  .linkWrap {
+    margin-top: 18.1333333333vw;
+  }
+}
+
+/* Exact Nída Tabba Line-Link with Sliding Underline Animation
+   padding-bottom: 2px; font-weight: 300; font-size: 1.1111vw (~16px); color: #000 */
+.lineLink {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 3px;
+  font-size: clamp(13.5px, 1.1111111111vw, 16px);
+  line-height: 1.2;
+  color: var(--crimson, #A70000);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: 0.2s ease-in-out color;
+}
+
+.lineLink:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--crimson, #A70000);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+}
+
+.lineLink:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--crimson-deep, #7A0000);
+  transform: translate3d(-102%, 0, 0);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.lineLink:hover {
+  color: var(--crimson-deep, #7A0000);
+}
+
+.lineLink:hover:before {
+  transform: translate3d(102%, 0, 0);
+}
+
+.lineLink:hover:after {
+  transform: translate3d(0, 0, 0);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1) 0.2s;
+}
+
+@media screen and (max-width: 960px) {
+  .lineLink {
+    font-size: 4.8vw;
+  }
+}
+
+/* ==========================================================================
+   Right Images Column (exact Nída Tabba: width: 41.1111vw, position: relative)
+   ========================================================================= */
+.imagesWrap {
+  width: 41.1111111111vw;
+  flex-shrink: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 960px) {
+  .imagesWrap {
+    width: 68vw;
+    margin-left: auto;
+  }
+}
+
+/* Overlapping Secondary Close-Up Image
+   Exact Nída Tabba position: top: 18.4027777778vw, left: -16.7361111111vw, width: 23.2638888889vw, height: 29.0972222222vw
+   Clean flat editorial presentation (NO artificial drop shadow) with smooth upward scroll float */
+.overlapImage {
+  position: absolute;
+  z-index: 2;
+  width: 23.2638888889vw;
+  height: 29.0972222222vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  top: 18.4027777778vw;
+  left: -16.7361111111vw;
+  box-shadow: none;
+  will-change: transform;
+}
+
+.overlapImage .img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 960px) {
+  .overlapImage {
+    left: -16vw;
+    right: auto;
+    top: 20vw;
+    width: 38vw;
+    height: 48vw;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .homeTextImages {
+    padding: 12vw var(--edge-gutter, 16px) 14vw;
+  }
+  .textWrap {
+    width: 100%;
+    margin-bottom: 14vw;
+  }
+  .heading {
+    font-size: clamp(24px, 7.5vw, 32px);
+    margin-bottom: 6vw;
+  }
+  .para {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .linkWrap {
+    margin-top: 24px;
+  }
+  .lineLink {
+    font-size: 14px;
+    letter-spacing: 0.08em;
+  }
+  .imagesWrap {
+    width: 76vw;
+    margin-left: auto;
+  }
+  .overlapImage {
+    left: -18vw;
+    right: auto;
+    top: 16vw;
+    width: 44vw;
+    height: 55vw;
+  }
+  .imageDesc {
+    max-width: 100%;
+    margin-top: 18px;
+    font-size: 12.5px;
+    line-height: 1.45;
+  }
+}
+
+/* Primary Portrait Image (mainImageWrap) with Nída Tabba fade-up */
+.mainImageWrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+.mainImageWrap .img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Editorial manifesto caption under portrait — EXACT Nída Tabba
+   text-transform: uppercase; margin-top: 2.22222vw; width: 32.9166vw; font-size: 1.25vw; line-height: 1.4; color: pure black */
+.imageDesc {
+  text-transform: uppercase;
+  margin-top: 2.2222222222vw;
+  width: 32.9166666667vw;
+  font-family: var(--font-body, var(--font-manrope, sans-serif));
+  font-size: clamp(14px, 1.25vw, 19px);
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+  color: #000000 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media screen and (max-width: 960px) {
+  .imageDesc {
+    margin-top: 8vw;
+    width: 100%;
+    max-width: 65.3333333333vw;
+    font-size: clamp(13.5px, 3.7333vw, 16px);
+    line-height: 1.4;
+  }
+}
+
+/* ==========================================================================
+   Discover Title with Signature Contour Bubble Line
+   Exact Nída Tabba "home-discover" section
+   ========================================================================== */
+.brandIntroSection {
+  position: relative;
+  background: #ffffff;
+  width: 100%;
+}
+
+.homeDiscover {
+  padding: clamp(56px, 5.5vw, 88px) 0 0;
+  width: 100%;
+  position: relative;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 960px) {
+  .homeDiscover {
+    padding: 14vw 0 0 0;
+  }
+}
+
+.titleBubble {
+  position: relative;
+  margin-bottom: clamp(140px, 12vw, 180px);
+  width: 100%;
+  display: block;
+}
+
+@media screen and (max-width: 960px) {
+  .titleBubble {
+    margin-bottom: clamp(80px, 24vw, 110px);
+  }
+}
+
+.discoverTitle {
+  font-family: var(--font-display, var(--font-jost), 'Futura', 'Century Gothic', sans-serif);
+  font-size: clamp(38px, 5.1388888889vw, 84px);
+  line-height: 1.15;
+  text-align: center;
+  color: #000000 !important;
+  position: relative;
+  z-index: 2;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  margin: 0;
+  padding: 0 2vw;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media screen and (max-width: 960px) {
+  .discoverTitle {
+    font-size: clamp(26px, 9.0666666667vw, 44px);
+    line-height: 1.2;
+    padding: 0 4vw;
+  }
+}
+
+.discoverBubble {
+  position: absolute;
+  left: 14vw;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+@media screen and (max-width: 960px) {
+  .discoverBubble {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.discoverBubbleSvg {
+  width: 32vw;
+  height: auto;
+  aspect-ratio: 320 / 260;
+  display: block;
+}
+
+@media screen and (max-width: 960px) {
+  .discoverBubbleSvg {
+    width: 72vw;
+    height: auto;
+    aspect-ratio: 320 / 260;
+  }
+}
+
+.pathHidden {
+  stroke-dasharray: 4500;
+  stroke-dashoffset: 4500;
+  opacity: 0;
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.8s ease-in-out;
+}
+
+.pathDrawn {
+  stroke-dasharray: 4500;
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transition: stroke-dashoffset 2.6s cubic-bezier(0.42, 0, 0.58, 1), opacity 0.8s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discoverTitle,
+  .discoverTitleHidden,
+  .discoverTitleVisible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .pathHidden,
+  .pathDrawn {
+    stroke-dashoffset: 0 !important;
+    transition: none !important;
+  }
+}
